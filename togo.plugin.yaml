@@ -1,0 +1,11 @@
+name: auth-supabase
+description: Supabase (GoTrue) JWT authentication — /auth/me endpoint + bearer-token middleware.
+priority: 20
+
+backend:
+  package: github.com/togo-framework/plugin-auth-supabase
+
+env:
+  - SUPABASE_JWT_SECRET
+
+commands: []
