@@ -14,12 +14,12 @@ export function AuthForm({ mode }: { mode: "login" | "register" }) {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const router = useRouter();
-  const supabase = createClient();
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
     setError(null);
     setLoading(true);
+    const supabase = createClient(); // created on submit (browser) so SSR/prerender never needs env
     const { error } =
       mode === "login"
         ? await supabase.auth.signInWithPassword({ email, password })
